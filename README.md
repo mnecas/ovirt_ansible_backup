@@ -11,7 +11,7 @@ Fill in the rest of the vars as needed and pay special attention to the timeout 
 
 Run the playbook on crontab at whatever schedule you like for easy automated backups.
 
-## Links to some of the ansible modules used in this project:
+## Relevant ansible modules used:
 
 https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html
 https://docs.ansible.com/ansible/latest/modules/ovirt_auth_module.html
