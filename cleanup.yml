@@ -1,0 +1,7 @@
+---
+- name: "Find the most recent backup"
+  shell: 'ls -Art {{ completed_path }} | grep {{ item }}-- | tail -n1'
+  register: latest_backup
+
+- name: "Remove VM backups older than retain_days var excluding the most recent backup"
+  shell: 'find {{ completed_path }} -name "{{ item }}--*.{{ file_ext }}" ! -name {{ latest_backup.stdout }} -mtime +{{ retain_days }} -delete'

@@ -1,0 +1,39 @@
+---
+
+- name: "Ensure state of backup in_progress directory"
+  file:
+    path: "{{ in_progress_path }}"
+    state: directory
+    mode: 0755
+
+- name: "Ensure state of backup completed directory"
+  file:
+    path: "{{ completed_path }}"
+    state: directory
+    mode: 0755
+
+- name: "Export VM to OVA"
+  ovirt_vm:
+    auth: "{{ ovirt_auth }}"
+    name: "{{ item }}"
+    state: exported
+    cluster: "{{ cluster }}"
+    export_ova:
+        host: "{{ host }}"
+        filename: "{{ item }}.{{ file_ext }}"
+        directory: "{{ in_progress_path }}"
+
+# Note that there is another timeout value that can affect OVA exports can be controlled
+# on hosted-engine with /etc/ovirt-engine/engine.conf.d/99-ansible-playbook-timeout.conf
+- name: "Wait for export to finish"
+  wait_for:
+    path: "{{ in_progress_path }}{{ item }}.{{ file_ext }}"
+    timeout: 30000
+
+- name: "Get current timestamp"
+  shell: "date +%F-%R"
+  register: tstamp
+
+- name: "Move backup to completed"
+  command: "mv {{ in_progress_path }}{{ item }}.{{ file_ext }} {{ completed_path }}{{ item }}--{{ tstamp.stdout }}.{{ file_ext }}"
+  register: mv_result

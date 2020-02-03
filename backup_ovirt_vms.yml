@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars:
+    host: host0
+    cluster: default
+    in_progress_path: "/backup/in_progress/"
+    completed_path: "/backup/completed/"
+    file_ext: ova
+    retain_days: 10
+    vms:
+      - vm1
+      - vm2
+
+  tasks:
+    - name: "Authenticate"
+      ovirt_auth:
+        url: https://example.com/ovirt-engine/api
+        username: admin@internal
+        ca_file: /etc/pki/ovirt-engine/ca.pem
+        password: "password_goes_here"
+
+    - name: "Backup VMs"
+      include_tasks: export_vm.yml
+      loop: "{{ vms }}"
+
+    - name: "Clean Backups"
+      include_tasks: cleanup.yml
+      loop: "{{ vms }}"
+
+    - name: "Remove SSO token"
+      ovirt_auth:
+        state: absent
+        ovirt_auth: "{{ ovirt_auth }}"
+      tags: always
