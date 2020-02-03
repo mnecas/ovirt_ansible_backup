@@ -1,5 +1,5 @@
 # ovirt_ansible_backup
-A simple way to export running oVirt VMs as OVA using ansible.
+A simple  to export running oVirt VMs as OVA using ansible.
 
 See <BLOG_POST_URL> for more information.
 
@@ -9,7 +9,7 @@ The CA certificate should be available in the same location specified in playboo
 
 Fill in the rest of the vars as needed and pay special attention to the timeout values, especially if you intend to export large VMs.
 
-Run the playbook with a simple crontab at whatever schedule you like for automated backups.
+Run the playbook on crontab at whatever schedule you like for easy automated backups.
 
 ## Links to some of the ansible modules used in this project:
 
