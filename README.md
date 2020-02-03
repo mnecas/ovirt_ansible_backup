@@ -7,7 +7,7 @@ In order for this to work you must have storage for the VM backups attached to o
 
 Fill in the rest of the vars as needed and pay special attention to the timeout values, especially if you intend to export large VMs.
 
-Run the plauybook with a simple crontab at whatever schedule you like for automated backups.
+Run the playbook with a simple crontab at whatever schedule you like for automated backups.
 
 ## Links to some of the ansible modules used in this project:
 
