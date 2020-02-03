@@ -11,8 +11,8 @@ Run the plauybook with a simple crontab at whatever schedule you like for automa
 
 ## Links to some of the ansible modules used in this project:
 
-https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html#ovirt-vm-module
-https://docs.ansible.com/ansible/latest/modules/ovirt_auth_module.html#ovirt-auth-module
+https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html
+https://docs.ansible.com/ansible/latest/modules/ovirt_auth_module.html
 https://docs.ansible.com/ansible/latest/modules/wait_for_module.html
-https://docs.ansible.com/ansible/latest/modules/command_module.html#command-module
+https://docs.ansible.com/ansible/latest/modules/command_module.html
 
