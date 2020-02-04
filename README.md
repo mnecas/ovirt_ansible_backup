@@ -1,5 +1,5 @@
 # ovirt_ansible_backup
-A simple  to export running oVirt VMs as OVA using ansible.
+A simple method to export running oVirt VMs as OVA using ansible.
 
 See <BLOG_POST_URL> for more information.
 
