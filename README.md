@@ -13,7 +13,7 @@ Run the playbook on crontab at whatever schedule you like for easy automated bac
 
 ## Relevant ansible modules used:
 
-https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html
-https://docs.ansible.com/ansible/latest/modules/ovirt_auth_module.html
-https://docs.ansible.com/ansible/latest/modules/wait_for_module.html
-https://docs.ansible.com/ansible/latest/modules/shell_module.html
+* https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html
+* https://docs.ansible.com/ansible/latest/modules/ovirt_auth_module.html
+* https://docs.ansible.com/ansible/latest/modules/wait_for_module.html
+* https://docs.ansible.com/ansible/latest/modules/shell_module.html
