@@ -1,5 +1,5 @@
 # ovirt_ansible_backup
-A simple method to export running oVirt VMs as OVA using ansible.
+A simple method to export running oVirt VMs to OVA format for backup purposes using Ansible.
 
 See https://blog.silverorange.com/backing-up-ovirt-vms-with-ansible-4c2fca8b3b43 for more information.
 
@@ -11,7 +11,7 @@ Fill in the rest of the vars as needed and pay special attention to the timeout 
 
 Run the playbook using `ansible-playbook backup_ovirt_vms.yml` -- add a crontab entry to automate the process.
 
-## Relevant ansible modules used:
+## Relevant Ansible modules used:
 
 * https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html
 * https://docs.ansible.com/ansible/latest/modules/ovirt_auth_module.html
