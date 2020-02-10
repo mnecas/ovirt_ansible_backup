@@ -9,7 +9,7 @@ The CA certificate should be available in the same location specified in playboo
 
 Fill in the rest of the vars as needed and pay special attention to the timeout values, especially if you intend to export large VMs.
 
-Run the playbook on crontab at whatever schedule you like for easy automated backups.
+Run the playbook using `ansible-playbook backup_ovirt_vms.yml` -- add a crontab entry to automate the process.
 
 ## Relevant ansible modules used:
 
