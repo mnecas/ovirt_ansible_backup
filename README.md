@@ -1,7 +1,7 @@
 # ovirt_ansible_backup
 A simple method to export running oVirt VMs as OVA using ansible.
 
-See <BLOG_POST_URL> for more information.
+See https://blog.silverorange.com/backing-up-ovirt-vms-with-ansible-4c2fca8b3b43for more information.
 
 In order for this to work you must have storage for the VM backups attached to one of your oVirt hosts (and specify that host in the playbook vars). The storage can be a local partition/disk or network mounted such as NFS. In the example we use an NFS mount at `/backup` on `host0`. Due to the fact the `wait_for` module uses filenames to allow exporting of one VM at a time the storage should also be accessible from whever you are running the playbook from (in our case we run from the oVirt hosted engine VM with `/backup` mounted on it). It's easy to get started with ansible on the oVirt hosted engine VM as it already has ansible and ovirt python packages installed.
 
