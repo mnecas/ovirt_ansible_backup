@@ -31,7 +31,7 @@
         filename: "{{ vm_name }}.{{ file_ext }}"
         directory: "{{ in_progress_path }}"
 
-- name: "Get event info"
+- name: "Wait for export"
   ovirt_event_info:
     auth: "{{ ovirt_auth }}"
     search: "correlation_id={{ cor_id }} and type=1224"
