@@ -47,7 +47,7 @@
   register: tstamp
 
 - name: "Move backup to completed"
-  command: "mv {{ in_progress_path }}{% if in_progress_path[-1] != '/' %}/{% endif %}{{ vm_name }}.{{ file_ext }} {{ completed_path }}{% if completed_path[-1] != '/' %}{{ vm_name }}--{{ tstamp.stdout }}.{{ file_ext }}"
+  command: "mv {{ in_progress_path }}{% if in_progress_path[-1] != '/' %}/{% endif %}{{ vm_name }}.{{ file_ext }} {{ completed_path }}{% if completed_path[-1] != '/' %}/{% endif %}{{ vm_name }}--{{ tstamp.stdout }}.{{ file_ext }}"
   register: mv_result
   delegate_to: "{{ ovirt_host_info.ovirt_hosts[0].address }}"
   remote_user: "{{ host_remote_user }}"
