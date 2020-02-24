@@ -9,17 +9,33 @@
     completed_path: "/backup/completed/"
     file_ext: ova
     retain_days: 10
+    all_timeout: 600
+    poll_interval: 10
+    debug_logs: True
+    host_remote_user: root
     vms:
       - vm1
       - vm2
 
   tasks:
+    - name: "Generate UUID"
+      set_fact:
+        cor_id: "{{ 9999999999999999999999 | random | to_uuid }}"
+
     - name: "Authenticate"
       ovirt_auth:
         url: https://example.com/ovirt-engine/api
         username: admin@internal
         ca_file: /etc/pki/ovirt-engine/ca.pem
         password: "password_goes_here"
+        headers:
+          Correlation-Id: "{{ cor_id }}"
+
+    - name: "Get host info"
+      ovirt_host_info:
+        auth: "{{ ovirt_auth }}"
+        pattern: "name={{ host }}"
+      register: ovirt_host_info
 
     - name: "Backup VMs"
       include_tasks: export_vm.yml
