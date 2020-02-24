@@ -40,6 +40,8 @@
     - name: "Backup VMs"
       include_tasks: export_vm.yml
       loop: "{{ vms }}"
+      loop_control:
+        loop_var: vm_name
 
     - name: "Clean Backups"
       include_tasks: cleanup.yml
