@@ -18,6 +18,7 @@
 - name: "Get previous event info"
   ovirt_event_info:
     auth: "{{ ovirt_auth }}"
+    max: 1
   register: previous
 
 - name: "Export VM to OVA"
@@ -34,7 +35,7 @@
 - name: "Wait for export"
   ovirt_event_info:
     auth: "{{ ovirt_auth }}"
-    search: "correlation_id={{ cor_id }} and type=1224"
+    search: "vm={{ vm_name }} and type=1224"
     from_: "{{ previous.ovirt_events[0].index }}"
   register: result
   until: result.ovirt_events | length > 0
